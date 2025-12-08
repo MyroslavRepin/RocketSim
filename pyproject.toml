@@ -1,6 +1,11 @@
 [project]
 name = "rocketsim"
 version = "0.1.0"
-description = "Add your description here"
+description = "Educational rocket stabilization simulator - FOR SIMULATION ONLY, NOT FOR REAL AEROSPACE USE"
 requires-python = ">=3.13"
-dependencies = []
+dependencies = [
+    "numpy>=1.24.0",
+    "scipy>=1.10.0",
+    "matplotlib>=3.7.0",
+]
+

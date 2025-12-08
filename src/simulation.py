@@ -170,7 +170,7 @@ class RocketSimulation:
     
     def set_target_attitude(self, quaternion: Optional[np.ndarray] = None, euler: Optional[np.ndarray] = None):
         """Set target attitude for guidance"""
-        self.guidance.set_attitude_attitude(quaternion=quaternion, euler=euler)
+        self.guidance.set_attitude_target(quaternion=quaternion, euler=euler)
     
     def set_point_tracking(self, target_position: np.ndarray):
         """Set point tracking mode"""
