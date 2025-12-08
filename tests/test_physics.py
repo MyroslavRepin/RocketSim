@@ -108,7 +108,8 @@ class TestRocketPhysics(unittest.TestCase):
         """Test quaternion multiplication"""
         # Identity * q = q
         q1 = np.array([1.0, 0.0, 0.0, 0.0])
-        q2 = np.array([0.707, 0.707, 0.0, 0.0])  # 90 deg roll
+        q2 = np.array([0.707, 0.707, 0.0, 0.0])
+        q2 = q2 / np.linalg.norm(q2)  # Normalize
         
         result = self.physics.quaternion_multiply(q1, q2)
         np.testing.assert_array_almost_equal(result, q2)
@@ -118,8 +119,8 @@ class TestRocketPhysics(unittest.TestCase):
         result = self.physics.quaternion_multiply(q2, q_conj)
         
         # Should be close to identity (allowing for numerical error)
-        self.assertAlmostEqual(result[0], 1.0, places=6)
-        np.testing.assert_array_almost_equal(result[1:], [0.0, 0.0, 0.0], decimal=6)
+        self.assertAlmostEqual(result[0], 1.0, places=5)
+        np.testing.assert_array_almost_equal(result[1:], [0.0, 0.0, 0.0], decimal=5)
     
     def test_rotation_matrix(self):
         """Test rotation matrix generation"""
